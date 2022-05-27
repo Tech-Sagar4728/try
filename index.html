@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+    }
+
+    body {
+      font-family: sans-serif;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    nav .logo {
+      color: white;
+      font-size: 33px;
+      font-weight: bold;
+      line-height: 70px;
+      padding-left: 110px;
+    }
+
+    nav {
+
+      position: fixed;
+
+      z-index: 1;
+
+      height: 70px;
+      width: 100vw;
+      background: #063247;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, .4);
+    }
+
+    nav ul {
+      float: right;
+      margin-right: 30px;
+    }
+
+    nav ul li {
+      display: inline-block;
+    }
+
+    nav ul li a {
+      color: white;
+      display: block;
+      padding: 0 15px;
+      line-height: 70px;
+      font-size: 20px;
+      background: #063247;
+      transition: .5s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #23dbdb;
+    }
+
+    nav ul ul {
+      position: absolute;
+      top: 85px;
+      border-top: 3px solid #23dbdb;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    nav ul li:hover>ul {
+      top: 70px;
+      opacity: 1;
+      visibility: visible;
+      transition: .3s linear;
+    }
+
+    nav ul ul li {
+      width: 150px;
+      display: list-item;
+      position: relative;
+      border: 1px solid #042331;
+      border-top: none;
+    }
+
+    nav ul ul li a {
+      line-height: 50px;
+    }
+
+    nav ul ul ul {
+      border-top: none;
+    }
+
+    nav ul ul ul li {
+      position: relative;
+      top: -70px;
+      left: 150px;
+    }
+
+    nav ul ul li a i {
+      margin-left: 45px;
+    }
+
+    section {
+      background: url(bg.jpeg);
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+    }
+
+    #home #home1 {
+
+      color: #0000EE;
+      font-size: 2.8em;
+
+    }
+
+    #home #home2 {
+
+
+      font-size: 2.4em;
+
+      color: rgba(76, 74, 74, 0.872);
+
+    }
+
+    #image1 {
+
+      position: absolute;
+      top: 190px;
+      left: 620px;
+
+
+    }
+
+    #where {
+
+      position: absolute;
+      top: 710px;
+
+
+
+
+    }
+
+    #mask {
+      position: absolute;
+      top: 1250px;
+    }
+
+    #mask #heading_mask {
+      position: relative;
+      top: 80px;
+      left: 40px;
+      color: #0000EE;
+      font-size: 4em;
+
+    }
+
+    #mask #summary_mask {
+      position: absolute;
+      top: 200px;
+      left: 50px;
+      font-size: 1.8em;
+
+      color: rgba(3, 2, 2, 0.872);
+
+
+    }
+
+    #img3 {
+
+      position: absolute;
+      top: 110px;
+
+      left: 700px;
+
+
+    }
+
+    #test_mask #mask_detector {
+
+      font-size: 3em;
+      position: relative;
+      top: 50px;
+
+      left: 550px;
+    }
+
+    #test_mask #img5 {
+      position: absolute;
+      top: 510px;
+
+      left: 450px;
+    }
+
+    #test_mask button {
+
+      position: relative;
+
+      top: 450px;
+      left: 820px;
+      font-size: 3.5em;
+      border: 5px double black;
+      padding: 5px;
+      
+      background-color: rgb(216, 224, 174);
+
+
+
+    }
+
+    #test_mask button:hover {
+      border: 2px solid #0000EE;
+      padding: 7px;
+      border-radius: 25px;
+      background-color: rgb(176, 206, 162);
+      cursor: pointer;
+    }
+    #where #heading_img2 {
+
+      position: absolute;
+      top: 190px;
+      left: 360px;
+
+
+
+
+    }
+    #where #heading_img2 #white {
+
+     border: 2px solid white;
+     height: 50px;
+     width: 850px;
+     background: white;
+     position: relative;
+     top: -40px;
+
+
+
+
+    }
+
+
+
+
+
+
+    #distance {
+      position: absolute;
+      top: 2250px;
+    }
+
+    #distance #heading_distance {
+      position: relative;
+      top: 150px;
+      left: 0px;
+
+      color: #0000EE;
+      font-size: 4em;
+
+    }
+
+    #distance #summary_distance {
+
+      position: relative;
+      top: 170px;
+      left: 0px;
+
+      font-size: 1.8em;
+
+      color: rgba(3, 2, 2, 0.872);
+
+
+    }
+
+    #img6 {
+
+      position: absolute;
+      top: 100px;
+
+      left: 650px;
+
+
+    }
+    
+    #test_distance #distance_detector {
+
+      font-size: 3em;
+      position: relative;
+      top: 175px;
+
+      left: 300px;
+    }
+
+
+    #test_distance button {
+
+      position: relative;
+
+      top: 110px;
+      left: 870px;
+      font-size: 3em;
+      border: 5px double black;
+      padding: 5px;
+      
+      background-color: rgb(216, 224, 174);
+
+
+
+    }
+
+    #test_distance button:hover {
+      border: 2px solid #0000EE;
+      padding: 7px;
+      border-radius: 25px;
+      background-color: rgb(176, 206, 162);
+      cursor: pointer;
+    }
+
+
+
+    /* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+#contact
+{ background-color: #ccc;
+  position: relative;
+  top: 2400px;
+  
+}
+
+  </style>
+
+
+
+</head>
+
+<body>
+
+
+  <nav>
+    <label class="logo">-Detecto-</label>
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li id="what">
+        <a href="#">What We Do
+          <i class="fas fa-caret-down"></i>
+        </a>
+        <ul>
+          <li><a href="#mask">Mask Detector</a></li>
+          <li><a href="#distance">Distance Detection</a></li>
+
+        </ul>
+      </li>
+      <li>
+        <a href="#where">Were We Use It
+
+        </a>
+
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+
+
+      <li><a href="#">Feedback</a></li>
+    </ul>
+
+  </nav>
+
+
+
+  <div id="home">
+
+    <pre> <p id="home1">
+  
+ 
+   
+
+   To prevent CORONAVIRUS in 
+   Business and public places
+ </p><p id="home2">
+  The most advanced and guaranteed...
+    Solution against COVID-19 that 
+    Works for you 24 hours a day 
+    Controlling accesses and spaces
+    Ensuring the health and 
+    Safety of people....
+</p>
+</pre>
+
+    <div id="image1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToECvTCq2fh5vi0qAs7Luzt0zOxyPyfulERA&usqp=CAU" height="450vh" width="900vw" alt="OPPS">
+    </div>
+
+
+  </div>
+
+
+  <div id="where">
+
+   <div id="heading_img2">
+     <img src="https://thumbs.dreamstime.com/z/municipal-city-buildings-library-bank-hospital-prison-vector-icon-set-building-architectural-crematorium-cemetery-fire-station-92439395.jpg" height="450vh" width="850vw" alt="">
+       <p id="white"></p>
+    </div>
+  
+  </div>
+
+  <div id="mask">
+    <pre>
+<p id="heading_mask">
+     MASK DETECTOR
+</p>
+<p id="summary_mask">
+         Detecto Visual Machine Learning
+         Deep Learnig detects if people are 
+         wearing or not wearing one 
+         CORONAVIRUS prevention mask.
+         Control any situation automatically
+         and in real time:
+         shops, business buildings, 
+         supermarkets, public spaces..
+</p>
+</pre>
+    <div id="img3">
+      <img src="https://www.logmask.com/images/mask-detection-sample.jpg" height="400vh" width="800vw" alt="">
+    </div>
+
+
+    <div id="test_mask">
+
+      <p id="mask_detector"> </p>
+
+      <div id="img5">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3cYPKaF5Og1ZXuS-MVNmdv85YMnT2Yk3JP_Ak72jTfFWAuntWoRmdevpbsRiBh6tlQjQ&usqp=CAU" "alt="">
+      </div>
+
+      <div id="start_mask">
+
+        <button><a href="/start">Start Model</a></button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="distance">
+    <pre>
+<p id="heading_distance">
+     DISTANCE DETECTOR</p><p id="summary_distance">
+             If you have people around you,
+             maintain a distance of 2 meters
+             from others as much as you can. 
+             Not just mass gatherings 
+             but even shopping malls,
+             stadiums, and movie theaters 
+             
+
+    </p>
+    </pre>
+    <div id="img6">
+      <img src="https://www.logmask.com/images/capacity-control.jpg"  height="420vh" width="800vw" alt="">
+    </div>
+
+
+    <div id="test_distance">
+
+      <p id="distance_detector"> Test Distance Detector</p>
+
+
+    </div>
+
+    <div id="test_distance">
+
+      <button><a href="/start2">Start Model</a></button>
+
+    </div>
+
+  </div>
+
+  </div>
+
+
+  <div class="container" id="contact">
+    <form action="action_page.php">
+  
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+  
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="australia">India</option>
+        <option value="canada">USA</option>
+        <option value="usa">Canada</option>
+        <option value="australia">Bhutan</option>
+        <option value="canada">Russia</option>
+        <option value="usa">Nepal</option>
+      </select>
+  
+      <label for="subject">Subject</label>
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+  
+      <input type="submit" value="Submit">
+  
+    </form>
+  </div>
+</body>
+
+</html>
